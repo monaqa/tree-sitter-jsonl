@@ -2,7 +2,7 @@ module.exports = grammar(require('tree-sitter-json/grammar'), {
     name: 'jsonl',
 
     extras: $ => [
-        " ", "\t"
+        " ", "\t", "\r",
     ],
 
     rules: {
