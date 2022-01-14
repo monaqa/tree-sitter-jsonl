@@ -1,0 +1,89 @@
+===================
+Arrays
+===================
+
+[1, 2, 3]
+[2, 3, 4]
+
+---
+
+(document
+  (line
+    (array
+      (number)
+      (number)
+      (number)))
+  (line
+    (array
+      (number)
+      (number)
+      (number))))
+
+===================
+Objects
+===================
+
+{"foo": 1, "bar": [true, true, false]}
+{"foo": 523, "bar": []}
+{"foo": 523, "bar": [false]}
+
+---
+
+(document
+  (line
+    (object
+      (pair
+        (string
+          (string_content))
+        (number))
+      (pair
+        (string
+          (string_content))
+        (array
+          (true)
+          (true)
+          (false)))))
+  (line
+    (object
+      (pair
+        (string
+          (string_content))
+        (number))
+      (pair
+        (string
+          (string_content))
+        (array))))
+  (line
+    (object
+      (pair
+        (string
+          (string_content))
+        (number))
+      (pair
+        (string
+          (string_content))
+        (array
+          (false))))))
+
+===================
+Invalid JSON line (error)
+===================
+
+[1, 2,
+3]
+[2, 3, 4]
+
+---
+
+(document
+  (line
+    (array
+      (number)
+      (number)
+      (ERROR)
+      (number)))
+  (line
+    (array
+      (number)
+      (number)
+      (number))))
